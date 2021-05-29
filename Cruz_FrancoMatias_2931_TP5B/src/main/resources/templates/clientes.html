@@ -45,8 +45,11 @@
           <th>T Ultima Compra</th>
           <th>T Fecha Nac</th>
           <th>T Cumpleaños</th>
+          <th>Acciones</th>
           </tr>
-       </thead>   
+       </thead>
+       
+          
       <tbody>
          <tr th:each="alu : ${clientes}">
            <td th:text="${alu.tipoDocumento}"></td>
@@ -58,8 +61,14 @@
            <td th:text="${alu.getEdadd}"></td>
            <td th:text="${alu.codigoAreaTelefono} + '-' + ${alu.nroTelefono}"></td>
            <td th:text="${alu.getTUltimaCompra}"></td>
-              <td th:text="${alu.TiempoEnDias}"></td>
-               <td th:text="${alu.Thastacumple }"></td>
+           <td th:text="${alu.TiempoEnDias}"></td>
+           <td th:text="${alu.Thastacumple }"></td>
+           <td>
+             <a th:href="@{/cliente/editar/}+${alu.id}" class="btn btn-warning">Editar</a>
+             <a th:href="@{/cliente/eliminar/}+${alu.id}" class="btn btn-danger">Eliminar</a>
+             
+           </td>
+         
          </tr>
        </tbody>
    </table>

@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ar.edu.unju.fi.tp5.model.Producto;
+import ar.edu.unju.fi.tp5.repository.IProductoRepository;
+import ar.edu.unju.fi.tp5.servicee.IProductoService;
 
-import ar.edu.unju.fi.tp4.model.Producto;
-import ar.edu.unju.fi.tp4.repository.IProductoRepository;
-import ar.edu.unju.fi.tp4.service.IClienteService;
-import ar.edu.unju.fi.tp4.service.IProductoService;
+
+
 
 @Service("productoServiceMySql")
 public class ProductoServiceMysqlImp implements IProductoService {

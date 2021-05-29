@@ -10,10 +10,10 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unju.fi.tp4.model.Cliente;
-import ar.edu.unju.fi.tp4.model.Producto;
-import ar.edu.unju.fi.tp4.service.IClienteService;
-import ar.edu.unju.fi.tp4.util.TablaCliente;
+import ar.edu.unju.fi.tp5.model.Cliente;
+import ar.edu.unju.fi.tp5.servicee.IClienteService;
+
+
 
 
 
@@ -79,6 +79,8 @@ public class ClienteServiceImp implements IClienteService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 	
 	
 

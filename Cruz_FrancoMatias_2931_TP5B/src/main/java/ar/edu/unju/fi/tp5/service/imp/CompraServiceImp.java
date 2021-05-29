@@ -6,10 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unju.fi.tp4.model.Compra;
-import ar.edu.unju.fi.tp4.model.Producto;
-import ar.edu.unju.fi.tp4.service.ICompraService;
-import ar.edu.unju.fi.tp4.util.TablaCompra;
+import ar.edu.unju.fi.tp5.model.Compra;
+import ar.edu.unju.fi.tp5.servicee.ICompraService;
+import ar.edu.unju.fi.tp5.util.TablaCompra;
+
+
 /**
  * aqui va el cuerpo de los metodos
  * @author Familia

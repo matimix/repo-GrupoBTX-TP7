@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unju.fi.tp4.model.Compra;
-import ar.edu.unju.fi.tp4.repository.ICompraRepository;
-import ar.edu.unju.fi.tp4.service.ICompraService;
+import ar.edu.unju.fi.tp5.model.Compra;
+import ar.edu.unju.fi.tp5.repository.ICompraRepository;
+import ar.edu.unju.fi.tp5.servicee.ICompraService;
+
+
 
 @Service("compraServiceMySql")
 public class CompraServiceMysqlImp implements ICompraService {
