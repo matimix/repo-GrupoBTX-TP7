@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.tp5.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,11 +23,12 @@ public class CompraController {
 	private Compra compra;
 	
 	@Autowired
+	@Qualifier("productoServiceMySql")
 	private IProductoService productoService;
 	
 	
 	@Autowired
-	
+	@Qualifier("compraServiceMySql")
 	private ICompraService compraService;
 	
 	
@@ -39,15 +41,17 @@ public class CompraController {
 	
 	@PostMapping("/compra/guardar")
 	   public ModelAndView getGuardarCompraPage(@ModelAttribute("compra")Compra compra) {
-		    ModelAndView modelView = new ModelAndView("lista-compra");
-		 //   Producto producto = productoService.getProductoporCodigo(compra.getProducto().getCodigo());
-		  //  compra.setProducto(producto);
-		    compraService.guardarCompra(compra);
-		    modelView.addObject("compras",compraService.getAllCompras());
-		    
-	         return modelView;
+		ModelAndView modelView = new ModelAndView("compra");
+		 compraService.addCompra(compra);
+		modelView.addObject("compra",compraService.getAllCompras());
+		return modelView;
 	
 	}
+	@GetMapping("/compra/listado")
+	 public String getComprasPage(Model model) {
+		 model.addAttribute("compras",compraService.getAllCompras());
+		 return "clientes";
+	 }
 	
 	
 	
