@@ -6,18 +6,22 @@ import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.Calendar;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 @Component("clienteObj")
 @Entity
-@Table(name="EMPLEADOS")
+@Table(name="CLIENTES")
 public class Cliente {
 	
 	@Id
@@ -43,12 +47,57 @@ public class Cliente {
 	private int nroTelefono;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaUltimaCompra;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Autowired
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "cue_id")
+	private Cuenta cuenta;
+	
+	
+	@Autowired
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "prod_codigo")
+	private Producto producto;
+	
+	
+	
 	public Cliente() {
 		super();
 	}
-	public Cliente(String tipoDocumento, int dni, String nombreApellido, String email, String password,
-			LocalDate fechaNacimiento, int edad, int codigoAreaTelefono, int nroTelefono, LocalDate fechaUltimaCompra) {
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+	public Cliente(long id, String tipoDocumento, int dni, String nombreApellido, String email, String password,
+			LocalDate fechaNacimiento, int edad, int codigoAreaTelefono, int nroTelefono, LocalDate fechaUltimaCompra,
+			Cuenta cuenta, Producto producto) {
 		super();
+		this.id = id;
 		this.tipoDocumento = tipoDocumento;
 		this.dni = dni;
 		this.nombreApellido = nombreApellido;
@@ -59,7 +108,28 @@ public class Cliente {
 		this.codigoAreaTelefono = codigoAreaTelefono;
 		this.nroTelefono = nroTelefono;
 		this.fechaUltimaCompra = fechaUltimaCompra;
+		this.cuenta = cuenta;
+		this.producto = producto;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public String getTipoDocumento() {
 		return tipoDocumento;
 	}
@@ -133,13 +203,7 @@ public class Cliente {
 	public void setId(long id) {
 		this.id = id;
 	}
-	@Override
-	public String toString() {
-		return "Cliente [tipoDocumento=" + tipoDocumento + ", dni=" + dni + ", nombreApellido=" + nombreApellido
-				+ ", email=" + email + ", password=" + password + ", fechaNacimiento=" + fechaNacimiento + ", edad="
-				+ edad + ", codigoAreaTelefono=" + codigoAreaTelefono + ", nroTelefono=" + nroTelefono
-				+ ", fechaUltimaCompra=" + fechaUltimaCompra + "]";
-	}
+	
 	
 
 	public String getEdadd() {
@@ -225,10 +289,99 @@ Calendar hoy = Calendar.getInstance();
 	
 	return text;	
 	}
+	/**
+	 * @return the cuenta
+	 */
+	public Cuenta getCuenta() {
+		return cuenta;
+	}
+	/**
+	 * @param cuenta the cuenta to set
+	 */
+	public void setCuenta(Cuenta cuenta) {
+		this.cuenta = cuenta;
+	}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", tipoDocumento=" + tipoDocumento + ", dni=" + dni + ", nombreApellido="
+				+ nombreApellido + ", email=" + email + ", password=" + password + ", fechaNacimiento="
+				+ fechaNacimiento + ", edad=" + edad + ", codigoAreaTelefono=" + codigoAreaTelefono + ", nroTelefono="
+				+ nroTelefono + ", fechaUltimaCompra=" + fechaUltimaCompra + ", cuenta=" + cuenta + ", producto="
+				+ producto + "]";
+	}
+
+	
+	
+	
+	
+	
+
+
+
+	 
 
 
 

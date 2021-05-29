@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,7 +39,13 @@ public class Compra {
 	
 	@OneToMany(mappedBy="compra")
 	private List<Producto> productos = new ArrayList<Producto>();
-	//private Producto producto;
+	
+	
+	@Autowired
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="prod_codigo")
+	
+	private Producto producto;
 	
 	public Compra() {
 		
@@ -106,6 +115,24 @@ public class Compra {
 	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
+	
+	
+
+
+
+
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+
+
+
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
 
 
 
@@ -113,8 +140,21 @@ public class Compra {
 
 	@Override
 	public String toString() {
-		return "Compra [id=" + id + ", cantidad=" + cantidad + ", total=" + total + "]";
+		return "Compra [id=" + id + ", cantidad=" + cantidad + ", total=" + total + ", productos=" + productos
+				+ ", producto=" + producto + "]";
 	}
+
+
+
+
+
+	
+
+
+
+
+
+	
 	
 	
 	
