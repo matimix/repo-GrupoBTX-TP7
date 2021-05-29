@@ -6,9 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.edu.unju.fi.tp4.model.Cliente;
-import ar.edu.unju.fi.tp4.repository.IClienteRepository;
-import ar.edu.unju.fi.tp4.service.IClienteService;
+import ar.edu.unju.fi.tp5.model.Cliente;
+import ar.edu.unju.fi.tp5.repository.IClienteRepository;
+import ar.edu.unju.fi.tp5.servicee.IClienteService;
+
+
 
 @Service("clienteServiceMySql")
 public class ClienteServiceMySQlImp implements IClienteService {

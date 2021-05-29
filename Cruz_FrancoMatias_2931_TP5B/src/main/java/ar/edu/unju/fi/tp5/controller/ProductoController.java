@@ -13,8 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.tp5.model.Compra;
 import ar.edu.unju.fi.tp5.model.Producto;
-import ar.edu.unju.fi.tp5.service.ICompraService;
-import ar.edu.unju.fi.tp5.service.IProductoService;
+import ar.edu.unju.fi.tp5.servicee.ICompraService;
+import ar.edu.unju.fi.tp5.servicee.IProductoService;
+
 
 
 
